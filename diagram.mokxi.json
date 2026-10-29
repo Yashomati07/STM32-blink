@@ -1,0 +1,410 @@
+{
+  "version": 1,
+  "name": "STM32 blink",
+  "parts": [
+    {
+      "id": "bluepill1",
+      "type": "bluepill",
+      "props": {},
+      "x": -140,
+      "y": -120,
+      "rot": 0
+    },
+    {
+      "id": "sgp301",
+      "type": "sgp30",
+      "props": {
+        "eco2": 400,
+        "tvoc": 200
+      },
+      "x": -540,
+      "y": -120,
+      "rot": 0
+    },
+    {
+      "id": "rgbled1",
+      "type": "rgbled",
+      "props": {
+        "common": "cathode"
+      },
+      "x": 240,
+      "y": -40,
+      "rot": 0
+    },
+    {
+      "id": "buzzer1",
+      "type": "buzzer",
+      "props": {},
+      "x": 60,
+      "y": 0,
+      "rot": 0
+    },
+    {
+      "id": "vcc1",
+      "type": "vcc",
+      "props": {
+        "voltage": 3.3
+      },
+      "x": -280,
+      "y": -40,
+      "rot": 0
+    },
+    {
+      "id": "gnd1",
+      "type": "gnd",
+      "props": {},
+      "x": -340,
+      "y": 360,
+      "rot": 0
+    },
+    {
+      "id": "r1",
+      "type": "resistor",
+      "props": {
+        "value": 300,
+        "power": "1/4 W"
+      },
+      "x": 220,
+      "y": 140,
+      "rot": 90
+    },
+    {
+      "id": "r2",
+      "type": "resistor",
+      "props": {
+        "value": 220,
+        "power": "1/4 W"
+      },
+      "x": 280,
+      "y": 140,
+      "rot": 90
+    },
+    {
+      "id": "r3",
+      "type": "resistor",
+      "props": {
+        "value": 220,
+        "power": "1/4 W"
+      },
+      "x": 320,
+      "y": 140,
+      "rot": 90
+    }
+  ],
+  "wires": [
+    {
+      "id": "w1",
+      "from": "sgp301:VIN",
+      "to": "bluepill1:3V3",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": -500,
+          "y": 200
+        },
+        {
+          "x": -460,
+          "y": 200
+        },
+        {
+          "x": -460,
+          "y": 240
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "from": "sgp301:GND",
+      "to": "bluepill1:GND",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": -480,
+          "y": 120
+        },
+        {
+          "x": -220,
+          "y": 120
+        },
+        {
+          "x": -220,
+          "y": 260
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "from": "sgp301:SDA",
+      "to": "bluepill1:PB7",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": -440,
+          "y": 160
+        },
+        {
+          "x": 40,
+          "y": 160
+        },
+        {
+          "x": 40,
+          "y": 240
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "from": "sgp301:SCL",
+      "to": "bluepill1:PB6",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": -460,
+          "y": 200
+        },
+        {
+          "x": 40,
+          "y": 200
+        },
+        {
+          "x": 40,
+          "y": 220
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "from": "rgbled1:R",
+      "to": "r1:1",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 200,
+          "y": 60
+        },
+        {
+          "x": 200,
+          "y": 100
+        },
+        {
+          "x": 260,
+          "y": 100
+        }
+      ]
+    },
+    {
+      "id": "w6",
+      "from": "r1:2",
+      "to": "bluepill1:PA2",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 260,
+          "y": 300
+        },
+        {
+          "x": -300,
+          "y": 300
+        },
+        {
+          "x": -300,
+          "y": 20
+        }
+      ]
+    },
+    {
+      "id": "w7",
+      "from": "rgbled1:G",
+      "to": "r2:1",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 300,
+          "y": 120
+        },
+        {
+          "x": 320,
+          "y": 120
+        }
+      ]
+    },
+    {
+      "id": "w8",
+      "from": "r2:2",
+      "to": "bluepill1:PA0",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 320,
+          "y": 340
+        },
+        {
+          "x": -180,
+          "y": 340
+        },
+        {
+          "x": -180,
+          "y": -20
+        }
+      ]
+    },
+    {
+      "id": "w9",
+      "from": "rgbled1:B",
+      "to": "r3:1",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 320,
+          "y": 160
+        },
+        {
+          "x": 360,
+          "y": 160
+        }
+      ]
+    },
+    {
+      "id": "w10",
+      "from": "r3:2",
+      "to": "bluepill1:PA1",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 360,
+          "y": 260
+        },
+        {
+          "x": -220,
+          "y": 260
+        },
+        {
+          "x": -220,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "w11",
+      "from": "buzzer1:1",
+      "to": "bluepill1:PB0",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 80,
+          "y": 140
+        }
+      ]
+    },
+    {
+      "id": "w12",
+      "from": "buzzer1:2",
+      "to": "bluepill1:GNDc",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 100,
+          "y": 180
+        },
+        {
+          "x": 160,
+          "y": 180
+        },
+        {
+          "x": 160,
+          "y": -80
+        }
+      ]
+    },
+    {
+      "id": "w13",
+      "from": "bluepill1:GND",
+      "to": "gnd1:GND",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": -260,
+          "y": 260
+        },
+        {
+          "x": -260,
+          "y": 340
+        },
+        {
+          "x": -320,
+          "y": 340
+        }
+      ]
+    },
+    {
+      "id": "w14",
+      "from": "bluepill1:GNDc",
+      "to": "gnd1:GND",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 200,
+          "y": -80
+        },
+        {
+          "x": 200,
+          "y": 180
+        },
+        {
+          "x": -320,
+          "y": 180
+        }
+      ]
+    },
+    {
+      "id": "w15",
+      "from": "rgbled1:C",
+      "to": "gnd1:GND",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 280,
+          "y": 200
+        },
+        {
+          "x": -320,
+          "y": 200
+        }
+      ]
+    },
+    {
+      "id": "w16",
+      "from": "vcc1:VCC",
+      "to": "bluepill1:3V3",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": -260,
+          "y": 20
+        },
+        {
+          "x": -240,
+          "y": -100
+        },
+        {
+          "x": -240,
+          "y": 60
+        }
+      ]
+    }
+  ],
+  "projects": {
+    "*": {
+      "files": {
+        "sketch.ino": "// Mokxi.\n// This circuit has no board, so Run simulates the parts only.\n// Add a board and pick a program in its Firmware panel: the editor then shows\n// that program's source, and Run builds what you type here for that board.\n\nvoid setup() {\n  pinMode(13, OUTPUT);\n  Serial.begin(115200);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n  delay(500);\n  digitalWrite(13, LOW);\n  delay(500);\n}\n"
+      },
+      "main": "sketch.ino"
+    },
+    "bluepill1": {
+      "files": {
+        "sketch.ino": "\n#include <Wire.h>\n\n// ==================================================\n// STM32 BLUE PILL PIN CONFIGURATION\n// ==================================================\n#define GREEN_LED   PA0\n#define YELLOW_LED  PA1\n#define RED_LED     PA2\n#define BUZZER      PB0\n\n// SGP30 I2C address\n#define SGP30_ADDRESS 0x58\n\n// SGP30 commands\n#define SGP30_INIT_AIR_QUALITY    0x2003\n#define SGP30_MEASURE_AIR_QUALITY 0x2008\n\n// ==================================================\n// TVOC THRESHOLDS (ppb)\n// ==================================================\n#define TVOC_GOOD_MAX       220\n#define TVOC_MODERATE_MAX   660\n#define TVOC_EXTREME_MIN   1000\n\n// ==================================================\n// AIR QUALITY STATES\n// ==================================================\nenum AirQuality {\n  AIR_GOOD,\n  AIR_MODERATE,\n  AIR_POOR,\n  AIR_EXTREME\n};\n\nAirQuality airQuality = AIR_GOOD;\n\nuint16_t eco2 = 400;\nuint16_t tvoc = 0;\n\n// ==================================================\n// SGP30 CRC-8 CALCULATION\n// ==================================================\nuint8_t calculateCRC(uint8_t data[], uint8_t length) {\n  uint8_t crc = 0xFF;\n\n  for (uint8_t i = 0; i < length; i++) {\n    crc ^= data[i];\n\n    for (uint8_t bit = 0; bit < 8; bit++) {\n      if (crc & 0x80) {\n        crc = (crc << 1) ^ 0x31;\n      } else {\n        crc <<= 1;\n      }\n    }\n  }\n\n  return crc;\n}\n\n// ==================================================\n// SEND COMMAND TO SGP30\n// ==================================================\nbool sendSGP30Command(uint16_t command) {\n  Wire.beginTransmission(SGP30_ADDRESS);\n\n  Wire.write((uint8_t)(command >> 8));\n  Wire.write((uint8_t)(command & 0xFF));\n\n  return Wire.endTransmission() == 0;\n}\n\n// ==================================================\n// READ eCO2 AND TVOC\n// ==================================================\nbool readSGP30(uint16_t &co2, uint16_t &voc) {\n  if (!sendSGP30Command(SGP30_MEASURE_AIR_QUALITY)) {\n    return false;\n  }\n\n  delay(15);\n\n  uint8_t received = Wire.requestFrom(\n    (uint8_t)SGP30_ADDRESS,\n    (uint8_t)6\n  );\n\n  if (received != 6) {\n    while (Wire.available()) {\n      Wire.read();\n    }\n    return false;\n  }\n\n  uint8_t data[6];\n\n  for (uint8_t i = 0; i < 6; i++) {\n    data[i] = Wire.read();\n  }\n\n  uint8_t eco2Data[2] = {data[0], data[1]};\n  uint8_t tvocData[2] = {data[3], data[4]};\n\n  if (calculateCRC(eco2Data, 2) != data[2]) {\n    return false;\n  }\n\n  if (calculateCRC(tvocData, 2) != data[5]) {\n    return false;\n  }\n\n  co2 = ((uint16_t)data[0] << 8) | data[1];\n  voc = ((uint16_t)data[3] << 8) | data[4];\n\n  return true;\n}\n\n// ==================================================\n// LED AND BUZZER CONTROL\n// Assumes active-HIGH LEDs and buzzer\n// ==================================================\nvoid setLEDs(bool green, bool yellow, bool red) {\n  digitalWrite(GREEN_LED,  green  ? HIGH : LOW);\n  digitalWrite(YELLOW_LED, yellow ? HIGH : LOW);\n  digitalWrite(RED_LED,    red    ? HIGH : LOW);\n}\n\nvoid setBuzzer(bool enabled) {\n  digitalWrite(BUZZER, enabled ? HIGH : LOW);\n}\n\n// ==================================================\n// AIR QUALITY DECISION\n// ==================================================\nvoid updateAirQuality() {\n\n  if (tvoc > TVOC_EXTREME_MIN) {\n\n    // EXTREME: Red LED + buzzer ON\n    airQuality = AIR_EXTREME;\n\n    setLEDs(false, false, true);\n    setBuzzer(true);\n\n  } else if (tvoc > TVOC_MODERATE_MAX) {\n\n    // POOR: Red LED, buzzer OFF\n    airQuality = AIR_POOR;\n\n    setLEDs(false, false, true);\n    setBuzzer(false);\n\n  } else if (tvoc > TVOC_GOOD_MAX) {\n\n    // MODERATE: Yellow LED, buzzer OFF\n    airQuality = AIR_MODERATE;\n\n    setLEDs(false, true, false);\n    setBuzzer(false);\n\n  } else {\n\n    // GOOD: Green LED, buzzer OFF\n    airQuality = AIR_GOOD;\n\n    setLEDs(true, false, false);\n    setBuzzer(false);\n  }\n}\n\n// ==================================================\n// PRINT SENSOR VALUES AND STATUS\n// ==================================================\nvoid printResults() {\n  Serial.print(\"eCO2: \");\n  Serial.print(eco2);\n  Serial.print(\" ppm | TVOC: \");\n  Serial.print(tvoc);\n  Serial.print(\" ppb | Status: \");\n\n  switch (airQuality) {\n    case AIR_GOOD:\n      Serial.println(\"GOOD - Green LED\");\n      break;\n\n    case AIR_MODERATE:\n      Serial.println(\"MODERATE - Yellow LED\");\n      break;\n\n    case AIR_POOR:\n      Serial.println(\"POOR - Red LED, Buzzer OFF\");\n      break;\n\n    case AIR_EXTREME:\n      Serial.println(\"EXTREME - Red LED, BUZZER ON\");\n      break;\n  }\n}\n\n// ==================================================\n// SETUP\n// ==================================================\nvoid setup() {\n  Serial.begin(115200);\n  delay(1000);\n\n  pinMode(GREEN_LED, OUTPUT);\n  pinMode(YELLOW_LED, OUTPUT);\n  pinMode(RED_LED, OUTPUT);\n  pinMode(BUZZER, OUTPUT);\n\n  setLEDs(false, false, false);\n  setBuzzer(false);\n\n  // STM32 Blue Pill I2C1: PB7 SDA, PB6 SCL\n  Wire.setSDA(PB7);\n  Wire.setSCL(PB6);\n  Wire.begin();\n  Wire.setClock(100000);\n\n  Serial.println();\n  Serial.println(\"Wearable Air Quality Monitoring Pendant\");\n  Serial.println(\"STM32 Blue Pill + SGP30\");\n  Serial.println(\"----------------------------------------\");\n\n  if (sendSGP30Command(SGP30_INIT_AIR_QUALITY)) {\n    Serial.println(\"SGP30 detected at 0x58.\");\n    Serial.println(\"Initialization successful.\");\n  } else {\n    Serial.println(\"ERROR: SGP30 initialization failed.\");\n    Serial.println(\"Check sensor power, SDA and SCL.\");\n\n    while (true) {\n      setLEDs(false, false, true);\n      setBuzzer(false);\n      delay(300);\n\n      setLEDs(false, false, false);\n      delay(300);\n    }\n  }\n\n  // Sensor warm-up\n  Serial.println(\"Warming up sensor for 15 seconds...\");\n\n  setLEDs(false, true, false);\n  setBuzzer(false);\n\n  for (int seconds = 15; seconds > 0; seconds--) {\n    Serial.print(\"Starting in \");\n    Serial.print(seconds);\n    Serial.println(\" seconds\");\n    delay(1000);\n  }\n\n  setLEDs(false, false, false);\n\n  Serial.println(\"Monitoring started.\");\n  Serial.println(\"----------------------------------------\");\n}\n\n// ==================================================\n// MAIN LOOP\n// ==================================================\nvoid loop() {\n  if (readSGP30(eco2, tvoc)) {\n    updateAirQuality();\n    printResults();\n  } else {\n    Serial.println(\"SGP30 read/CRC error.\");\n\n    // Never leave the buzzer active after a read error\n    setBuzzer(false);\n    setLEDs(false, false, false);\n  }\n\n  delay(1000);\n}\n"
+      },
+      "main": "sketch.ino"
+    }
+  }
+}

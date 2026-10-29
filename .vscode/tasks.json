@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Mokxi: Push to Mokxi",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli push",
+      "problemMatcher": []
+    },
+    {
+      "label": "Mokxi: Pull from Mokxi",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli pull",
+      "problemMatcher": []
+    },
+    {
+      "label": "Mokxi: Run in the simulator",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli run --seconds 5",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Mokxi: Open in the browser",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli open",
+      "problemMatcher": []
+    }
+  ]
+}
